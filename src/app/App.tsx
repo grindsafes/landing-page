@@ -58,12 +58,7 @@ export default function App() {
       <nav className="fixed top-0 inset-x-0 z-50 bg-background/90 backdrop-blur px-6">
         <div className="max-w-7xl mx-auto h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-md bg-foreground flex items-center justify-center">
-              <span className="text-primary-foreground" style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "-0.02em" }}>
-                G
-              </span>
-            </div>
-            <span style={{ fontSize: "15px", fontWeight: 600, letterSpacing: "-0.02em" }}>GrindSafe</span>
+            <img src="/logo.svg" alt="GrindSafe" className="h-6" />
           </div>
 
           <div className="hidden md:flex items-center gap-6">
@@ -88,7 +83,7 @@ export default function App() {
               className="bg-foreground text-primary-foreground px-4 py-1.5 rounded-md hover:bg-foreground/90 transition-colors"
               style={{ fontSize: "13px", fontWeight: 500 }}
             >
-              Join waitlist
+              Join us on Discord
             </a>
           </div>
 
@@ -383,12 +378,7 @@ export default function App() {
       <footer className="border-t border-border px-6 py-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-foreground flex items-center justify-center">
-              <span className="text-white" style={{ fontSize: "10px", fontWeight: 700 }}>G</span>
-            </div>
-            <span className="text-muted-foreground" style={{ fontSize: "13px" }}>
-              GrindSafe © 2025
-            </span>
+            <img src="/logo.svg" alt="GrindSafe" className="h-5" />
           </div>
           <div className="flex items-center gap-6">
             {/* {["Privacy", "Terms", "Contact"].map((item) => (
