@@ -60,10 +60,10 @@ export function DashboardMockup() {
           <div className="flex items-center gap-2 px-2 py-2 mb-3">
             <div className="w-6 h-6 rounded bg-foreground flex items-center justify-center">
               <span className="text-white" style={{ fontSize: "10px", fontWeight: 700 }}>
-                S
+                G
               </span>
             </div>
-            <span style={{ fontSize: "12px", fontWeight: 600 }}>StackEdge</span>
+            <span style={{ fontSize: "12px", fontWeight: 600 }}>GrindSafe</span>
           </div>
           {["Dashboard", "Sessions", "Bankroll", "Analytics", "Staking", "Settings"].map(
             (item, i) => (

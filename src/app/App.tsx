@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { DashboardMockup } from "./components/DashboardMockup";
-import { CheckCircle, ArrowRight, BarChart3, Shield, TrendingUp, Clock, Users, Layers } from "lucide-react";
+import { CheckCircle, ArrowRight, BarChart3, Shield, TrendingUp, Clock, Users, Layers, Linkedin } from "lucide-react";
 
 
 const features = [
@@ -55,19 +55,19 @@ export default function App() {
       style={{ fontFamily: "Inter, sans-serif" }}
     >
       {/* Nav */}
-      <nav className="fixed top-0 inset-x-0 z-50 bg-background/90 backdrop-blur border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <nav className="fixed top-0 inset-x-0 z-50 bg-background/90 backdrop-blur px-6">
+        <div className="max-w-7xl mx-auto h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-md bg-foreground flex items-center justify-center">
               <span className="text-primary-foreground" style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "-0.02em" }}>
-                S
+                G
               </span>
             </div>
-            <span style={{ fontSize: "15px", fontWeight: 600, letterSpacing: "-0.02em" }}>StackEdge</span>
+            <span style={{ fontSize: "15px", fontWeight: 600, letterSpacing: "-0.02em" }}>GrindSafe</span>
           </div>
 
           <div className="hidden md:flex items-center gap-6">
-            {["Features", "Pricing", "Blog"].map((item) => (
+            {/* {["Features", "Pricing", "Blog"].map((item) => (
               <a
                 key={item}
                 href="#"
@@ -76,13 +76,13 @@ export default function App() {
               >
                 {item}
               </a>
-            ))}
+            ))} */}
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" style={{ fontSize: "14px" }}>
+            {/* <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" style={{ fontSize: "14px" }}>
               Sign in
-            </a>
+            </a> */}
             <a
               href="#waitlist"
               className="bg-foreground text-primary-foreground px-4 py-1.5 rounded-md hover:bg-foreground/90 transition-colors"
@@ -105,11 +105,11 @@ export default function App() {
 
         {menuOpen && (
           <div className="md:hidden border-t border-border bg-background px-6 py-4 flex flex-col gap-3">
-            {["Features", "Pricing", "Blog", "Sign in"].map((item) => (
+            {/* {["Features", "Pricing", "Blog", "Sign in"].map((item) => (
               <a key={item} href="#" className="text-muted-foreground" style={{ fontSize: "14px" }}>
                 {item}
               </a>
-            ))}
+            ))} */}
           </div>
         )}
       </nav>
@@ -170,33 +170,33 @@ export default function App() {
           />
         </div>
 
-        <div className="max-w-6xl mx-auto relative flex flex-col items-center text-center">
-          <div className="max-w-2xl w-full flex flex-col items-center">
+        <div className="max-w-7xl mx-auto relative flex flex-col items-center text-center">
+          <div className="max-w-3xl w-full flex flex-col items-center">
             <div
               className="inline-flex items-center gap-2 border border-border rounded-full px-3 py-1 mb-8"
               style={{ fontSize: "12px", color: "#71717a" }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a] inline-block" />
-              Now in private beta — 340 players on the list
+              Now in private beta
             </div>
 
             <h1
               className="text-foreground mb-6 tracking-tight"
               style={{ fontSize: "clamp(36px, 6vw, 64px)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em" }}
             >
-              Your poker finances,<br />
-              <span className="text-muted-foreground">finally under control.</span>
+              Your operating system,<br />
+              <span className="text-muted-foreground">for poker.</span>
             </h1>
 
             <p
               className="text-muted-foreground mb-10 max-w-lg text-center"
               style={{ fontSize: "17px", lineHeight: 1.65 }}
             >
-              StackEdge is the financial OS for serious poker players. Track sessions, manage staking, analyze your edge, and grow your bankroll with clarity.
+              GrindSafe is the financial OS for serious poker players. Track sessions, manage staking, analyze your edge, and grow your bankroll with clarity.
             </p>
 
             {/* Waitlist form */}
-            <div id="waitlist">
+            <div id="waitlist" style={{ display: 'none' }}>
               {submitted ? (
                 <div className="flex items-center gap-3 bg-secondary border border-border rounded-lg px-5 py-4 max-w-md">
                   <CheckCircle className="w-5 h-5 text-[#16a34a] shrink-0" />
@@ -233,13 +233,26 @@ export default function App() {
                 No credit card required. Free during beta.
               </p>
             </div>
+
+            <div className="mt-4 flex justify-center">
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg hover:opacity-90 active:scale-95 transition-all"
+                style={{ backgroundColor: "#5865F2", color: "#fff", fontSize: "14px", fontWeight: 500 }}
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                </svg>
+                Join us on Discord
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Dashboard Preview */}
       <section className="pb-24 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-b from-transparent via-border/30 to-transparent rounded-2xl" />
             <div className="relative">
@@ -250,7 +263,7 @@ export default function App() {
       </section>
 
       {/* Divider with label */}
-      <div className="flex items-center gap-4 max-w-6xl mx-auto px-6 mb-20">
+      <div className="flex items-center gap-4 max-w-7xl mx-auto px-6 mb-20">
         <div className="flex-1 h-px bg-border" />
         <span className="text-muted-foreground" style={{ fontSize: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
           Everything you need
@@ -260,7 +273,7 @@ export default function App() {
 
       {/* Features grid */}
       <section className="pb-24 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="max-w-xl mb-14">
             <h2
               className="tracking-tight mb-4"
@@ -302,7 +315,7 @@ export default function App() {
 
       {/* CTA */}
       <section className="pb-28 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="bg-foreground text-primary-foreground rounded-2xl px-8 py-14 md:py-20 text-center">
             <p
               className="text-primary-foreground/50 mb-4"
@@ -319,51 +332,66 @@ export default function App() {
             <p className="text-primary-foreground/60 mb-10 max-w-md mx-auto" style={{ fontSize: "16px", lineHeight: 1.6 }}>
               Join 340+ serious players who are taking control of their poker finances.
             </p>
-            {submitted ? (
-              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-lg px-6 py-3">
-                <CheckCircle className="w-4 h-4 text-white" />
-                <span style={{ fontSize: "14px" }}>You're on the list! We'll be in touch.</span>
-              </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="flex flex-col sm:flex-row gap-2 max-w-sm mx-auto"
-              >
-                <input
-                  type="email"
-                  required
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder:text-white/40 outline-none focus:border-white/50 transition-all"
-                  style={{ fontSize: "14px" }}
-                />
-                <button
-                  type="submit"
-                  className="bg-white text-foreground px-5 py-2.5 rounded-lg hover:bg-white/90 active:scale-95 transition-all shrink-0"
-                  style={{ fontSize: "14px", fontWeight: 500 }}
+            <div style={{ display: 'none' }}>
+              {submitted ? (
+                <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-lg px-6 py-3">
+                  <CheckCircle className="w-4 h-4 text-white" />
+                  <span style={{ fontSize: "14px" }}>You're on the list! We'll be in touch.</span>
+                </div>
+              ) : (
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col sm:flex-row gap-2 max-w-sm mx-auto"
                 >
-                  Join waitlist
-                </button>
-              </form>
-            )}
+                  <input
+                    type="email"
+                    required
+                    placeholder="your@email.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder:text-white/40 outline-none focus:border-white/50 transition-all"
+                    style={{ fontSize: "14px" }}
+                  />
+                  <button
+                    type="submit"
+                    className="bg-white text-foreground px-5 py-2.5 rounded-lg hover:bg-white/90 active:scale-95 transition-all shrink-0"
+                    style={{ fontSize: "14px", fontWeight: 500 }}
+                  >
+                    Join waitlist
+                  </button>
+                </form>
+              )}
+            </div>
+
+            <div className="mt-8 flex justify-center">
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg hover:opacity-90 active:scale-95 transition-all"
+                style={{ backgroundColor: "#5865F2", color: "#fff", fontSize: "14px", fontWeight: 500 }}
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                </svg>
+                Join us on Discord
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="border-t border-border px-6 py-10">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-md bg-foreground flex items-center justify-center">
-              <span className="text-white" style={{ fontSize: "10px", fontWeight: 700 }}>S</span>
+              <span className="text-white" style={{ fontSize: "10px", fontWeight: 700 }}>G</span>
             </div>
             <span className="text-muted-foreground" style={{ fontSize: "13px" }}>
-              StackEdge © 2025
+              GrindSafe © 2025
             </span>
           </div>
           <div className="flex items-center gap-6">
-            {["Privacy", "Terms", "Contact"].map((item) => (
+            {/* {["Privacy", "Terms", "Contact"].map((item) => (
               <a
                 key={item}
                 href="#"
@@ -372,7 +400,15 @@ export default function App() {
               >
                 {item}
               </a>
-            ))}
+            ))} */}
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="LinkedIn">
+              <Linkedin className="w-4 h-4" />
+            </a>
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Discord">
+              <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+              </svg>
+            </a>
           </div>
         </div>
       </footer>
