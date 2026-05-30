@@ -6,7 +6,19 @@ const PORTUGUESE_COUNTRIES = new Set([
   "BR", "PT", "AO", "MZ", "CV", "GW", "ST", "TL", "GQ", "MO",
 ]);
 
-function detectBrowserLanguage(): string | null {
+const PORTUGUESE_TIMEZONES = new Set([
+  "America/Sao_Paulo", "America/Bahia", "America/Belem",
+  "America/Campo_Grande", "America/Cuiaba", "America/Fortaleza",
+  "America/Maceio", "America/Manaus", "America/Noronha",
+  "America/Porto_Velho", "America/Recife", "America/Rio_Branco",
+  "America/Santarem", "America/Boa_Vista", "America/Eirunepe",
+  "Europe/Lisbon", "Europe/Porto", "Europe/Funchal",
+  "Atlantic/Azores", "Atlantic/Madeira",
+  "Africa/Luanda", "Africa/Maputo", "Africa/Bissau", "Africa/Sao_Tome",
+  "Asia/Dili", "Asia/Macau",
+]);
+
+function detectFromBrowser(): string | null {
   const langs = [
     navigator.language,
     ...(navigator.languages || []),
@@ -17,18 +29,26 @@ function detectBrowserLanguage(): string | null {
   return null;
 }
 
+function detectFromTimezone(): string | null {
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (tz && PORTUGUESE_TIMEZONES.has(tz)) return "pt";
+  } catch {}
+  return null;
+}
+
 async function fetchGeoCountry(): Promise<string | null> {
   const services = [
-    "https://ipapi.co/json/",
-    "https://ip-api.com/json/?fields=countryCode",
+    { url: "https://ipinfo.io/json", extract: (d: any) => d.country },
+    { url: "http://ip-api.com/json/?fields=countryCode", extract: (d: any) => d.countryCode },
   ];
 
-  for (const url of services) {
+  for (const { url, extract } of services) {
     try {
-      const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
+      const res = await fetch(url, { signal: AbortSignal.timeout(4000) });
       if (!res.ok) continue;
       const data = await res.json();
-      const code = data.country || data.countryCode;
+      const code = extract(data);
       if (code) return code.toUpperCase();
     } catch {
       continue;
@@ -41,6 +61,8 @@ function LanguageDetect() {
   const [lang, setLang] = useState<string | null>(null);
 
   useEffect(() => {
+    let cancelled = false;
+
     const redirect = sessionStorage.getItem("spa_redirect");
     if (redirect) {
       sessionStorage.removeItem("spa_redirect");
@@ -57,14 +79,20 @@ function LanguageDetect() {
       return;
     }
 
-    const browserLang = detectBrowserLanguage();
+    const fromBrowser = detectFromBrowser();
+    const fromTz = detectFromTimezone();
+    const detected = fromBrowser || fromTz;
+
+    if (detected === "pt") {
+      sessionStorage.setItem("geo_language", "pt");
+      setLang("pt");
+      return;
+    }
 
     fetchGeoCountry()
       .then((country) => {
+        if (cancelled) return;
         if (country && PORTUGUESE_COUNTRIES.has(country)) {
-          sessionStorage.setItem("geo_language", "pt");
-          setLang("pt");
-        } else if (browserLang === "pt") {
           sessionStorage.setItem("geo_language", "pt");
           setLang("pt");
         } else {
@@ -73,8 +101,11 @@ function LanguageDetect() {
         }
       })
       .catch(() => {
-        setLang(browserLang || "en");
+        if (cancelled) return;
+        setLang(detected || "en");
       });
+
+    return () => { cancelled = true; };
   }, []);
 
   if (!lang) {
