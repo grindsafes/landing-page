@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "title": "GrindSafe | Your operating system for poker",
+    "description": "Streamline poker finances with a sleek dashboard and waitlist signup, helping players track and manage their poker-related financial activities efficiently."
+  },
+  "nav": {
+    "logoAlt": "GrindSafe",
+    "discordButton": "Join us on Discord",
+    "mobileMenuToggle": "Toggle menu"
+  },
+  "hero": {
+    "badge": "Now in private beta",
+    "headline": "Your operating system,<br/><span class=\"text-muted-foreground\">for poker.</span>",
+    "subheadline": "GrindSafe is the financial OS for serious poker players. Track sessions, manage staking, analyze your edge, and grow your bankroll with clarity.",
+    "emailPlaceholder": "your@email.com",
+    "ctaButton": "Get early access",
+    "disclaimer": "No credit card required. Free during beta.",
+    "discordButton": "Join us on Discord"
+  },
+  "features": {
+    "sectionTitle": "Everything you need",
+    "sectionSubtitle": "Built for players who treat poker like a business.",
+    "sectionDescription": "Every feature is designed around what actually matters at the table — and off it.",
+    "items": [
+      {
+        "title": "Bankroll Tracking",
+        "description": "Log every session and watch your equity curve build in real time. Import from poker sites or enter manually."
+      },
+      {
+        "title": "Advanced Analytics",
+        "description": "Win rate, ROI, EV per hour, variance analysis, and session heatmaps — all in one place."
+      },
+      {
+        "title": "Staking Management",
+        "description": "Track makeup, manage your horse relationships, and auto-calculate splits at settlement."
+      },
+      {
+        "title": "Bankroll Safety",
+        "description": "Set stop-loss limits, shot-taking thresholds, and get alerts before you move up stakes."
+      },
+      {
+        "title": "Session Timer",
+        "description": "Built-in session clock with live P&L tracking. Know your hourly rate as you play."
+      },
+      {
+        "title": "Study Groups",
+        "description": "Share leaderboards and progress with your poker group. Friendly competition that sharpens focus."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Limited spots available",
+    "headline": "Stop guessing.<br/>Start winning.",
+    "subtext": "Join 340+ serious players who are taking control of their poker finances.",
+    "emailPlaceholder": "your@email.com",
+    "joinButton": "Join waitlist",
+    "successMessage": "You're on the list! We'll be in touch.",
+    "discordButton": "Join us on Discord"
+  },
+  "footer": {
+    "logoAlt": "GrindSafe",
+    "linkedinLabel": "LinkedIn",
+    "discordLabel": "Discord"
+  },
+  "dashboard": {
+    "urlBarText": "grindsafe.app/dashboard",
+    "altText": "GrindSafe Dashboard"
+  }
+}

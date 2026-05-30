@@ -1,4 +1,8 @@
+import { useTranslation } from "../../useTranslation";
+
 export function DashboardMockup() {
+  const { t } = useTranslation();
+
   return (
     <div
       style={{ fontFamily: "Inter, sans-serif" }}
@@ -15,12 +19,12 @@ export function DashboardMockup() {
           className="text-muted-foreground"
           style={{ fontSize: "11px", letterSpacing: "0.04em" }}
         >
-          grindsafe.app/dashboard
+          {t("dashboard.urlBarText")}
         </span>
         <div className="w-16" />
       </div>
 
-      <img src="/product.svg" alt="GrindSafe Dashboard" className="w-full" />
+      <img src="/product.svg" alt={t("dashboard.altText")} className="w-full" />
     </div>
   );
 }

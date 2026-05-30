@@ -1,46 +1,60 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useTranslation } from "../useTranslation";
 import { DashboardMockup } from "./components/DashboardMockup";
 import { CheckCircle, ArrowRight, BarChart3, Shield, TrendingUp, Clock, Users, Layers, Linkedin } from "lucide-react";
+import { LanguageSwitcher } from "./components/LanguageSwitcher";
 
-
-const features = [
-  {
-    icon: TrendingUp,
-    title: "Bankroll Tracking",
-    description: "Log every session and watch your equity curve build in real time. Import from poker sites or enter manually.",
-  },
-  {
-    icon: BarChart3,
-    title: "Advanced Analytics",
-    description: "Win rate, ROI, EV per hour, variance analysis, and session heatmaps — all in one place.",
-  },
-  {
-    icon: Layers,
-    title: "Staking Management",
-    description: "Track makeup, manage your horse relationships, and auto-calculate splits at settlement.",
-  },
-  {
-    icon: Shield,
-    title: "Bankroll Safety",
-    description: "Set stop-loss limits, shot-taking thresholds, and get alerts before you move up stakes.",
-  },
-  {
-    icon: Clock,
-    title: "Session Timer",
-    description: "Built-in session clock with live P&L tracking. Know your hourly rate as you play.",
-  },
-  {
-    icon: Users,
-    title: "Study Groups",
-    description: "Share leaderboards and progress with your poker group. Friendly competition that sharpens focus.",
-  },
-];
-
-
-export default function App() {
+export default function App({ lang }: { lang: string }) {
+  const { t, i18n } = useTranslation();
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    i18n.changeLanguage(lang);
+  }, [lang, i18n]);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.title = t("meta.title");
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) {
+      meta.setAttribute("content", t("meta.description"));
+    }
+  }, [lang, t]);
+
+  const features = [
+    {
+      icon: TrendingUp,
+      title: t("features.items.0.title"),
+      description: t("features.items.0.description"),
+    },
+    {
+      icon: BarChart3,
+      title: t("features.items.1.title"),
+      description: t("features.items.1.description"),
+    },
+    {
+      icon: Layers,
+      title: t("features.items.2.title"),
+      description: t("features.items.2.description"),
+    },
+    {
+      icon: Shield,
+      title: t("features.items.3.title"),
+      description: t("features.items.3.description"),
+    },
+    {
+      icon: Clock,
+      title: t("features.items.4.title"),
+      description: t("features.items.4.description"),
+    },
+    {
+      icon: Users,
+      title: t("features.items.5.title"),
+      description: t("features.items.5.description"),
+    },
+  ];
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -58,39 +72,27 @@ export default function App() {
       <nav className="fixed top-0 inset-x-0 z-50 bg-background/90 backdrop-blur px-6">
         <div className="max-w-7xl mx-auto h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/logo.svg" alt="GrindSafe" className="h-6" />
+            <img src="/logo.svg" alt={t("nav.logoAlt")} className="h-6" />
           </div>
 
           <div className="hidden md:flex items-center gap-6">
-            {/* {["Features", "Pricing", "Blog"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                style={{ fontSize: "14px" }}
-              >
-                {item}
-              </a>
-            ))} */}
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            {/* <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" style={{ fontSize: "14px" }}>
-              Sign in
-            </a> */}
+            <LanguageSwitcher />
             <a
               href="#waitlist"
               className="bg-foreground text-primary-foreground px-4 py-1.5 rounded-md hover:bg-foreground/90 transition-colors"
               style={{ fontSize: "13px", fontWeight: 500 }}
             >
-              Join us on Discord
+              {t("nav.discordButton")}
             </a>
           </div>
 
           <button
             className="md:hidden p-1"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            aria-label={t("nav.mobileMenuToggle")}
           >
             <div className="w-5 h-px bg-foreground mb-1.5" />
             <div className="w-5 h-px bg-foreground mb-1.5" />
@@ -100,11 +102,6 @@ export default function App() {
 
         {menuOpen && (
           <div className="md:hidden border-t border-border bg-background px-6 py-4 flex flex-col gap-3">
-            {/* {["Features", "Pricing", "Blog", "Sign in"].map((item) => (
-              <a key={item} href="#" className="text-muted-foreground" style={{ fontSize: "14px" }}>
-                {item}
-              </a>
-            ))} */}
           </div>
         )}
       </nav>
@@ -113,7 +110,6 @@ export default function App() {
       <section className="pt-32 pb-20 px-6 relative overflow-hidden">
         {/* Gradient blur orbs */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-          {/* Top-left dark orb */}
           <div
             style={{
               position: "absolute",
@@ -126,7 +122,6 @@ export default function App() {
               filter: "blur(60px)",
             }}
           />
-          {/* Top-right dark orb */}
           <div
             style={{
               position: "absolute",
@@ -139,7 +134,6 @@ export default function App() {
               filter: "blur(60px)",
             }}
           />
-          {/* Center-bottom dark orb */}
           <div
             style={{
               position: "absolute",
@@ -152,7 +146,6 @@ export default function App() {
               filter: "blur(70px)",
             }}
           />
-          {/* Noise/grain overlay for texture */}
           <div
             style={{
               position: "absolute",
@@ -172,31 +165,29 @@ export default function App() {
               style={{ fontSize: "12px", color: "#71717a" }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a] inline-block" />
-              Now in private beta
+              {t("hero.badge")}
             </div>
 
             <h1
               className="text-foreground mb-6 tracking-tight"
               style={{ fontSize: "clamp(36px, 6vw, 64px)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em" }}
-            >
-              Your operating system,<br />
-              <span className="text-muted-foreground">for poker.</span>
-            </h1>
+              dangerouslySetInnerHTML={{ __html: t("hero.headline") }}
+            />
 
             <p
               className="text-muted-foreground mb-10 max-w-lg text-center"
               style={{ fontSize: "17px", lineHeight: 1.65 }}
             >
-              GrindSafe is the financial OS for serious poker players. Track sessions, manage staking, analyze your edge, and grow your bankroll with clarity.
+              {t("hero.subheadline")}
             </p>
 
             {/* Waitlist form */}
-            <div id="waitlist" style={{ display: 'none' }}>
+            <div id="waitlist" style={{ display: "none" }}>
               {submitted ? (
                 <div className="flex items-center gap-3 bg-secondary border border-border rounded-lg px-5 py-4 max-w-md">
                   <CheckCircle className="w-5 h-5 text-[#16a34a] shrink-0" />
                   <div>
-                    <p style={{ fontSize: "14px", fontWeight: 500 }}>You're on the list!</p>
+                    <p style={{ fontSize: "14px", fontWeight: 500 }}>{t("cta.successMessage")}</p>
                     <p className="text-muted-foreground" style={{ fontSize: "13px" }}>
                       We'll email you at{" "}
                       <span style={{ fontFamily: "JetBrains Mono, monospace" }}>{email}</span> when your spot is ready.
@@ -208,7 +199,7 @@ export default function App() {
                   <input
                     type="email"
                     required
-                    placeholder="your@email.com"
+                    placeholder={t("hero.emailPlaceholder")}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="flex-1 bg-white border border-border rounded-lg px-4 py-2.5 text-foreground placeholder:text-muted-foreground outline-none focus:border-foreground focus:ring-2 focus:ring-foreground/10 transition-all"
@@ -219,13 +210,13 @@ export default function App() {
                     className="bg-foreground text-primary-foreground px-5 py-2.5 rounded-lg hover:bg-foreground/90 active:scale-95 transition-all flex items-center gap-2 shrink-0"
                     style={{ fontSize: "14px", fontWeight: 500 }}
                   >
-                    Get early access
+                    {t("hero.ctaButton")}
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </form>
               )}
               <p className="text-muted-foreground mt-2.5 text-center" style={{ fontSize: "12px" }}>
-                No credit card required. Free during beta.
+                {t("hero.disclaimer")}
               </p>
             </div>
 
@@ -238,7 +229,7 @@ export default function App() {
                 <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
                   <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
                 </svg>
-                Join us on Discord
+                {t("hero.discordButton")}
               </a>
             </div>
           </div>
@@ -261,7 +252,7 @@ export default function App() {
       <div className="flex items-center gap-4 max-w-7xl mx-auto px-6 mb-20">
         <div className="flex-1 h-px bg-border" />
         <span className="text-muted-foreground" style={{ fontSize: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-          Everything you need
+          {t("features.sectionTitle")}
         </span>
         <div className="flex-1 h-px bg-border" />
       </div>
@@ -274,10 +265,10 @@ export default function App() {
               className="tracking-tight mb-4"
               style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.025em" }}
             >
-              Built for players who treat poker like a business.
+              {t("features.sectionSubtitle")}
             </h2>
             <p className="text-muted-foreground" style={{ fontSize: "16px", lineHeight: 1.6 }}>
-              Every feature is designed around what actually matters at the table — and off it.
+              {t("features.sectionDescription")}
             </p>
           </div>
 
@@ -316,22 +307,21 @@ export default function App() {
               className="text-primary-foreground/50 mb-4"
               style={{ fontSize: "12px", letterSpacing: "0.12em", textTransform: "uppercase" }}
             >
-              Limited spots available
+              {t("cta.eyebrow")}
             </p>
             <h2
               className="text-primary-foreground mb-5 tracking-tight"
               style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.03em" }}
-            >
-              Stop guessing.<br />Start winning.
-            </h2>
+              dangerouslySetInnerHTML={{ __html: t("cta.headline") }}
+            />
             <p className="text-primary-foreground/60 mb-10 max-w-md mx-auto" style={{ fontSize: "16px", lineHeight: 1.6 }}>
-              Join 340+ serious players who are taking control of their poker finances.
+              {t("cta.subtext")}
             </p>
-            <div style={{ display: 'none' }}>
+            <div style={{ display: "none" }}>
               {submitted ? (
                 <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-lg px-6 py-3">
                   <CheckCircle className="w-4 h-4 text-white" />
-                  <span style={{ fontSize: "14px" }}>You're on the list! We'll be in touch.</span>
+                  <span style={{ fontSize: "14px" }}>{t("cta.successMessage")}</span>
                 </div>
               ) : (
                 <form
@@ -341,7 +331,7 @@ export default function App() {
                   <input
                     type="email"
                     required
-                    placeholder="your@email.com"
+                    placeholder={t("cta.emailPlaceholder")}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder:text-white/40 outline-none focus:border-white/50 transition-all"
@@ -352,7 +342,7 @@ export default function App() {
                     className="bg-white text-foreground px-5 py-2.5 rounded-lg hover:bg-white/90 active:scale-95 transition-all shrink-0"
                     style={{ fontSize: "14px", fontWeight: 500 }}
                   >
-                    Join waitlist
+                    {t("cta.joinButton")}
                   </button>
                 </form>
               )}
@@ -367,7 +357,7 @@ export default function App() {
                 <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
                   <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
                 </svg>
-                Join us on Discord
+                {t("cta.discordButton")}
               </a>
             </div>
           </div>
@@ -378,23 +368,13 @@ export default function App() {
       <footer className="border-t border-border px-6 py-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <img src="/logo.svg" alt="GrindSafe" className="h-5" />
+            <img src="/logo.svg" alt={t("footer.logoAlt")} className="h-5" />
           </div>
           <div className="flex items-center gap-6">
-            {/* {["Privacy", "Terms", "Contact"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                style={{ fontSize: "13px" }}
-              >
-                {item}
-              </a>
-            ))} */}
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="LinkedIn">
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label={t("footer.linkedinLabel")}>
               <Linkedin className="w-4 h-4" />
             </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Discord">
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label={t("footer.discordLabel")}>
               <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
                 <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
               </svg>

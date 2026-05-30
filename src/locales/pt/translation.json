@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "title": "GrindSafe | Seu sistema operacional para poker",
+    "description": "Simplifique as finanças do poker com um painel elegante e cadastro na lista de espera, ajudando jogadores a acompanhar e gerenciar suas atividades financeiras relacionadas ao poker de forma eficiente."
+  },
+  "nav": {
+    "logoAlt": "GrindSafe",
+    "discordButton": "Entre no Discord",
+    "mobileMenuToggle": "Alternar menu"
+  },
+  "hero": {
+    "badge": "Agora em beta privado",
+    "headline": "Seu sistema operacional,<br/><span class=\"text-muted-foreground\">para poker.</span>",
+    "subheadline": "O GrindSafe é o SO financeiro para jogadores sérios de poker. Acompanhe sessões, gerencie staking, analise sua vantagem e aumente seu bankroll com clareza.",
+    "emailPlaceholder": "seu@email.com",
+    "ctaButton": "Tenha acesso antecipado",
+    "disclaimer": "Sem cartão de crédito. Grátis durante o beta.",
+    "discordButton": "Entre no Discord"
+  },
+  "features": {
+    "sectionTitle": "Tudo o que você precisa",
+    "sectionSubtitle": "Feito para jogadores que tratam poker como um negócio.",
+    "sectionDescription": "Cada funcionalidade é pensada para o que realmente importa na mesa — e fora dela.",
+    "items": [
+      {
+        "title": "Controle de Bankroll",
+        "description": "Registre cada sessão e veja sua curva de equity crescer em tempo real. Importe de sites de poker ou insira manualmente."
+      },
+      {
+        "title": "Analytics Avançados",
+        "description": "Win rate, ROI, EV por hora, análise de variância e mapas de calor das sessões — tudo em um só lugar."
+      },
+      {
+        "title": "Gestão de Staking",
+        "description": "Acompanhe o makeup, gerencie seus relacionamentos com horses e calcule splits automaticamente na liquidação."
+      },
+      {
+        "title": "Segurança do Bankroll",
+        "description": "Defina limites de stop-loss, thresholds para shot-taking e receba alertas antes de subir de stakes."
+      },
+      {
+        "title": "Timer de Sessão",
+        "description": "Relógio de sessão integrado com acompanhamento de P&L ao vivo. Saiba seu ganho por hora enquanto joga."
+      },
+      {
+        "title": "Grupos de Estudo",
+        "description": "Compartilhe leaderboards e progresso com seu grupo de poker. Competição amigável que afia o foco."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Vagas limitadas disponíveis",
+    "headline": "Pare de adivinhar.<br/>Comece a vencer.",
+    "subtext": "Junte-se a mais de 340 jogadores sérios que estão assumindo o controle de suas finanças no poker.",
+    "emailPlaceholder": "seu@email.com",
+    "joinButton": "Entrar na lista",
+    "successMessage": "Você está na lista! Entraremos em contato.",
+    "discordButton": "Entre no Discord"
+  },
+  "footer": {
+    "logoAlt": "GrindSafe",
+    "linkedinLabel": "LinkedIn",
+    "discordLabel": "Discord"
+  },
+  "dashboard": {
+    "urlBarText": "grindsafe.app/dashboard",
+    "altText": "Painel GrindSafe"
+  }
+}
