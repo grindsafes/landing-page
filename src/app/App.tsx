@@ -101,7 +101,7 @@ export default function App({ lang }: { lang: string }) {
     >
       {/* Nav */}
       <nav className="fixed top-0 inset-x-0 z-50 bg-background/90 backdrop-blur px-6">
-        <div className="max-w-7xl mx-auto h-14 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img src="/logo.svg" alt={t("nav.logoAlt")} className="h-6" />
           </div>
@@ -191,7 +191,7 @@ export default function App({ lang }: { lang: string }) {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto relative flex flex-col items-center text-center">
+        <div className="max-w-6xl mx-auto relative flex flex-col items-center text-center">
           <div className="max-w-3xl w-full flex flex-col items-center">
             <div
               className="inline-flex items-center gap-2 border border-border rounded-full px-3 py-1 mb-8"
@@ -273,7 +273,7 @@ export default function App({ lang }: { lang: string }) {
 
       {/* Dashboard Preview */}
       <section className="pb-24 px-6">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-b from-transparent via-border/30 to-transparent rounded-2xl" />
             <div className="relative">
@@ -284,7 +284,7 @@ export default function App({ lang }: { lang: string }) {
       </section>
 
       {/* Divider with label */}
-      <div className="flex items-center gap-4 max-w-7xl mx-auto px-6 mb-20">
+      <div className="flex items-center gap-4 max-w-6xl mx-auto px-6 mb-20">
         <div className="flex-1 h-px bg-border" />
         <span className="text-muted-foreground" style={{ fontSize: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
           {t("features.sectionTitle")}
@@ -294,7 +294,7 @@ export default function App({ lang }: { lang: string }) {
 
       {/* Features grid */}
       <section className="pb-24 px-6">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="max-w-xl mb-14">
             <h2
               className="tracking-tight mb-4"
@@ -336,7 +336,7 @@ export default function App({ lang }: { lang: string }) {
 
       {/* CTA */}
       <section className="pb-28 px-6">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="bg-foreground text-primary-foreground rounded-2xl px-8 py-14 md:py-20 text-center">
             <p
               className="text-primary-foreground/50 mb-4"
@@ -403,7 +403,7 @@ export default function App({ lang }: { lang: string }) {
 
       {/* Footer */}
       <footer className="border-t border-border px-6 py-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <img src="/logo.svg" alt={t("footer.logoAlt")} className="h-5" />
           </div>
