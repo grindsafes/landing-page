@@ -15,11 +15,42 @@ export default function App({ lang }: { lang: string }) {
   }, [lang, i18n]);
 
   useEffect(() => {
+    const localeMap: Record<string, string> = { en: "en_US", pt: "pt_BR" };
+    const description = t("meta.description");
+    const title = t("meta.title");
+    const locale = localeMap[lang] || "en_US";
+
     document.documentElement.lang = lang;
-    document.title = t("meta.title");
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) {
-      meta.setAttribute("content", t("meta.description"));
+    document.title = title;
+
+    const setMeta = (attr: string, value: string, property = false) => {
+      const selector = property
+        ? `meta[property="${attr}"]`
+        : `meta[name="${attr}"]`;
+      let el = document.querySelector(selector) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(property ? "property" : "name", attr);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", value);
+    };
+
+    setMeta("description", description);
+    setMeta("og:title", title, true);
+    setMeta("og:description", description, true);
+    setMeta("og:locale", locale, true);
+    setMeta("twitter:title", title);
+    setMeta("twitter:description", description);
+
+    const jsonld = document.querySelector('script[type="application/ld+json"]');
+    if (jsonld) {
+      try {
+        const data = JSON.parse(jsonld.textContent || "{}");
+        data.description = description;
+        data.name = title;
+        jsonld.textContent = JSON.stringify(data, null, 2);
+      } catch {}
     }
   }, [lang, t]);
 
